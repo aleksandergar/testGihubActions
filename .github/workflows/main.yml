@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  tralala:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: First Step with a single command
+        run: echo Hello World
+
+      - name: Second Step with a multiline command
+        run: |
+         echo this is the first line!
+         echo this is the second line!
+
+        
