@@ -1,0 +1,23 @@
+name: build-app
+
+on:
+  push:
+    branches: main
+
+  workflow_dispatch:
+
+jobs:
+  build_application:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: step1
+        run: echo executing command in file ci/build-app.sh
+
+      - name: step2
+        run: ci/build-app.sh
+
+      - name: step3
+        run: echo execution passed
