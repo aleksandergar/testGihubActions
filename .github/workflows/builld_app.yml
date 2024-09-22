@@ -9,7 +9,7 @@ on:
 jobs:
   build_application:
     runs-on: ubuntu-latest
-
+    container: gradle:6-jdk11
     steps:
       - uses: actions/checkout@v4
 
