@@ -13,6 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: give permission
+        run: chmod +x ci/build-app.sh
+
       - name: step1
         run: echo executing command in file ci/build-app.sh
 
