@@ -1,0 +1,35 @@
+name: build-app
+
+on:
+  push:
+    branches: test_branch
+
+  workflow_dispatch:
+
+jobs:
+  build_application:
+    runs-on: ubuntu-latest
+    container: gradle:6-jdk11
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: give permission
+        run: chmod +x ci/build-app.sh
+
+      - name: step1
+        run: echo executing command in file ci/build-app.sh
+
+      - name: step2
+        run: ci/build-app.sh
+
+      - name: step3
+        run: echo execution passed
+
+      - name: step4
+        run: echo Getting ready to run the tests!
+
+      - name: step5
+        run: ci/unit-test-app.sh
+
+      - name: step6
+        run: echo finished running tests
