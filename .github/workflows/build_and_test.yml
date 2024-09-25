@@ -13,23 +13,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: give permission
+      - name: give permission to build app bash
         run: chmod +x ci/build-app.sh
 
-      - name: step1
+      - name: log progress1
         run: echo executing command in file ci/build-app.sh
 
-      - name: step2
+      - name: build app
         run: ci/build-app.sh
 
-      - name: step3
+      - name: log progress2
         run: echo execution passed
 
-      - name: step4
+      - name: give permission to unit test bash
+        run: chmod +x ci/unit-test-app.sh
+
+      - name: log progress3
         run: echo Getting ready to run the tests!
 
-      - name: step5
+      - name: run tests
         run: ci/unit-test-app.sh
 
-      - name: step6
+      - name: log progress4
         run: echo finished running tests
