@@ -9,12 +9,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
     strategy:
       matrix:
-        containerVer: ["gradle:6-jdk8", "gradle:6-jdk11", "gradle:6-jdk17"]  
-    
-    container: ${{ matrix.containerVer }}
+        container: ["gradle:6-jdk8", "gradle:6-jdk11", "gradle:6-jdk17"]
+    container:
+      image: ${{ matrix.container }}  
            
     steps:
 
