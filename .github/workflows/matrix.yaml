@@ -1,0 +1,23 @@
+name: build_with_matrix
+
+on:
+  push:
+    branches: test_branch
+
+  workflow_dispatch:   
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: clone down
+        uses: actions/checkout@v4
+
+      - name: progressStep1
+        run: echo cloned and ready to build
+
+      - run: chmod +x ci/build-app.sh
+
+      - name: build
+        run: ci/build-app.sh
