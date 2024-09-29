@@ -1,0 +1,31 @@
+name: build-app-and-store_artifact
+
+on:
+  push:
+    branches: test_branch
+
+  workflow_dispatch:
+
+jobs:
+  build_and_store:
+    runs-on: ubuntu-latest
+    container: gradle:6-jdk11
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: give permission to build app bash
+        run: chmod +x ci/build-app.sh
+
+      - name: build app
+        run: ci/build-app.sh
+
+      - name: give permission to unit test bash
+        run: chmod +x ci/unit-test-app.sh
+
+      - name: run tests
+        run: ci/unit-test-app.sh
+
+      - uses: actions/upload-artifact@v4
+        with: 
+          name: code
+          path: .
