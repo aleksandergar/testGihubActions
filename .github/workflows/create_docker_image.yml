@@ -1,4 +1,4 @@
-name: create_docker_image
+name: create-docker-image
 
 on:
   push:
