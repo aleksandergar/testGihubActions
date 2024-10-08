@@ -11,8 +11,7 @@ on:
     outputs:
       current-time:
         description: The time when greeting
-        value: ${{ jobs.reusable-job.outputs.current-time }}  # this can't be skiped?
-
+        value: ${{ jobs.reusable-job.outputs.current-time }}
 jobs:
  reusable-job:
    runs-on: ubuntu-latest
